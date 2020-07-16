@@ -1,0 +1,12 @@
+{
+  "name": "TCKR",
+  "version": "1.0.0",
+  "description": "Get live quotes",
+  "main": "index.js",
+  "repository": "https://github.com/h4ck3rk3y/TCKR",
+  "author": "Gyanendra Mishra <anomaly.the@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "bloomfilter": "^0.0.18"
+  }
+}
