@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {
     "bloomfilter": "^0.0.18",
+    "crx-hotreload": "^1.0.4",
     "tailwindcss": "^1.5.1"
   },
   "devDependencies": {
