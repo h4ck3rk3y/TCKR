@@ -1,9 +1,9 @@
-import { BloomFilter } from "bloomfilter";
+import { BloomFilter } from "./bloomfilter.js";
 
 var bloom = new BloomFilter(32 * 256, 16)
 
 bloom.add("TSLA")
 
-function isATicker(word) {
+export function isATicker(word) {
     return bloom.test(word)
 }

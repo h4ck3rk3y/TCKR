@@ -16,14 +16,19 @@ function replaceAll(node) {
         var textContent = node.textContent;
         var splitString = textContent.split(" ")
         splitString.forEach(word => {
-            console.log(word)
-            if (isATicker(word)) {
-                textContent.replace(word, "foobar")
+            if (isATicker(cleanString(word))) {
+                textContent = textContent.replace(word, "foobar");
+                node.textContent = textContent;
             }
         });
-        node.textContent = textContent;
     }
 }
 
-walkTheDOM(dom, replaceAll)
+function cleanString(word) {
+    return word.replace(/[\n\r]+/g, '');
+}
+
+export function main() {
+    walkTheDOM(dom, replaceAll)
+}
 
