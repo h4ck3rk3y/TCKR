@@ -7,6 +7,12 @@
   "author": "Gyanendra Mishra <anomaly.the@gmail.com>",
   "private": true,
   "dependencies": {
-    "bloomfilter": "^0.0.18"
+    "bloomfilter": "^0.0.18",
+    "tailwindcss": "^1.5.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.5",
+    "parcel": "^2.0.0-beta.1",
+    "postcss-import": "^12.0.1"
   }
 }
