@@ -28,16 +28,18 @@ function replaceAll(node) {
         var newContent = textContent;
         if (node.parentElement.id == "TCKRSPCL") {
             let tckr = node.parentElement.className;
-            node.parentElement.innerHTML = getTickerValue(tckr)
+            node.parentElement.outerHTML = getTickerValue(tckr)
             return
         }
 
+        let changed = false;
         splitString.forEach(word => {
             if (isATicker(cleanString(word))) {
+                changed = true;
                 newContent = newContent.replace(word, getTickerValue(word));
             }
         });
-        if (textContent != newContent && node.parentElement.tagName != "TITLE") {
+        if (changed && node.parentElement.tagName != "TITLE") {
             node.parentElement.innerHTML = newContent;
         }
     }
