@@ -10,3 +10,5 @@ Convert TCKRs to the right thing
 4. Tests
 5. Component that shows a ticker value with an arrow
 6. For the same ticker don't query API multiple times
+7. Handle weird variations like $SPCE
+8. Font size
