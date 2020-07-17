@@ -12,4 +12,4 @@ Convert TCKRs to the right thing
 6. For the same ticker don't query API multiple times
 7. Handle weird variations like $SPCE
 8. Font size
-9. Denylist / Allowlist
+9. Denylist / Allowlist of websites
