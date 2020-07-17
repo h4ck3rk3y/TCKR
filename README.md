@@ -13,3 +13,4 @@ Convert TCKRs to the right thing
 7. Handle weird variations like $SPCE
 8. Font size
 9. Denylist / Allowlist of websites
+10. Allow/Deny list of equities
