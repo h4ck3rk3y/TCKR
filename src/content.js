@@ -1,8 +1,21 @@
-const dom = document.documentElement
+const dom = document.getRootNode()
 
-var inner = dom.innerHTML
+function walkTheDOM(node, func) {
+    func(node);
+    node = node.firstChild;
+    while (node) {
+        walkTheDOM(node, func);
+        node = node.nextSibling;
+    }
+}
 
-var res = inner.replace(/TSLA/g, "foobar")
+function replaceAll(node) {
+    if (node && node.nodeType == 3) {
+        var textContent = node.textContent;
+        textContent = textContent.replace(/TSLA/g, 'foobar');
+        node.textContent = textContent;
+    }
+}
 
-dom.innerHTML = res;
+walkTheDOM(dom, replaceAll)
 
