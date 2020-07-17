@@ -12,6 +12,7 @@ bloom.add("AMZN")
 bloom.add("SPCE")
 bloom.add("TQQQ")
 bloom.add("MSFT")
+bloom.add("NKLA");
 
 export function isATicker(word) {
     return bloom.test(word)
