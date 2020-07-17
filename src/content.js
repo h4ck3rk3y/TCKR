@@ -1,9 +1,8 @@
-import cssText from "bundle-text:../dist/style.css";
+const dom = document.documentElement
 
-const html =
-    `
- <style>${cssText}</style>
-`
+var inner = dom.innerHTML
 
+var res = inner.replace(/TSLA/g, "foobar")
 
+dom.innerHTML = res;
 
