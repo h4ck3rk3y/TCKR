@@ -1,15 +1,14 @@
 import { isATicker } from "./ticker.js"
 
-function getTickerValue() {
-    const html1 = `<div id="TCKRSPCL" style="background-color:black;color:green;display:inline-block">TSLA 1500.84(0.0013%) ▲</div>`
-    const html2 = `<div id="TCKRSPCL" style="background-color:black;color:green;display:inline-block">TSLA 1591.84(0.1923%) ▲</div>`
-    const html3 = `<div id="TCKRSPCL" style="background-color:black;color:red;display:inline-block">TSLA 1394.84(-1.3441%) ▼</div>`
-    const html4 = `<div id="TCKRSPCL" style="background-color:black;color:green;display:inline-block">TSLA 2100.84(17.001%) ▲</div>`
-    const html5 = `<div id="TCKRSPCL" style="background-color:black;color:red;display:inline-block">TSLA 1294.84(-3.3441%) ▼</div>`
+function getTickerValue(word) {
+    const html1 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:green;display:inline-block">${word} 1500.84(0.0013%) ▲</div>`
+    const html2 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:green;display:inline-block">${word} 1591.84(0.1923%) ▲</div>`
+    const html3 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:red;display:inline-block">${word} 1394.84(-1.3441%) ▼</div>`
+    const html4 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:green;display:inline-block">${word} 2100.84(17.001%) ▲</div>`
+    const html5 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:red;display:inline-block">${word} 1294.84(-3.3441%) ▼</div>`
 
     let items = [html1, html2, html3, html4, html5];
     let index = Math.floor(Math.random() * items.length);
-    console.log(index)
     return items[index];
 }
 
@@ -28,13 +27,14 @@ function replaceAll(node) {
         var splitString = textContent.split(" ")
         var newContent = textContent;
         if (node.parentElement.id == "TCKRSPCL") {
-            node.parentElement.innerHTML = getTickerValue()
+            let tckr = node.parentElement.className;
+            node.parentElement.innerHTML = getTickerValue(tckr)
             return
         }
 
         splitString.forEach(word => {
             if (isATicker(cleanString(word))) {
-                newContent = textContent.replace(word, getTickerValue());
+                newContent = newContent.replace(word, getTickerValue(word));
             }
         });
         if (textContent != newContent && node.parentElement.tagName != "TITLE") {
@@ -51,6 +51,6 @@ export function main() {
     const dom = document.getRootNode()
     setInterval(function () {
         walkTheDOM(dom, replaceAll);
-    }, 2000)
+    }, 10000)
 }
 
