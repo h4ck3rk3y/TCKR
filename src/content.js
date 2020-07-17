@@ -1,3 +1,5 @@
+import { isATicker } from "./ticker.js"
+
 const dom = document.getRootNode()
 
 function walkTheDOM(node, func) {
@@ -12,7 +14,13 @@ function walkTheDOM(node, func) {
 function replaceAll(node) {
     if (node && node.nodeType == 3) {
         var textContent = node.textContent;
-        textContent = textContent.replace(/TSLA/g, 'foobar');
+        var splitString = textContent.split(" ")
+        splitString.forEach(word => {
+            console.log(word)
+            if (isATicker(word)) {
+                textContent.replace(word, "foobar")
+            }
+        });
         node.textContent = textContent;
     }
 }

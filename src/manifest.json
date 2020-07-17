@@ -6,7 +6,7 @@
     "content_scripts": [
         {
             "js": [
-                "content.js"
+                "content_script.js"
             ],
             "matches": [
                 "<all_urls>"
@@ -17,5 +17,10 @@
         "scripts": [
             "hot-reload.js"
         ]
-    }
+    },
+    "web_accessible_resources": [
+        "content.js",
+        "ticker.js",
+        "bloomfilter.js"
+    ]
 }
