@@ -1,11 +1,16 @@
 import { isATicker } from "./ticker.js"
 
 function getTickerValue() {
-    const html1 = `<div style="background-color:black;color:green;display:inline-block">TSLA 1500.84(0.0013%) ▲</div>`
-    const html2 = `<div style="background-color:black;color:green;display:inline-block">TSLA 1591.84(0.1923%) ▲</div>`
-    const html3 = `<div style="background-color:black;color:red;display:inline-block">TSLA 1394.84(-1.3441%) ▼</div>`
-    let items = [html1, html2, html3];
-    return items[Math.floor(Math.random() * items.length)];
+    const html1 = `<div id="TCKRSPCL" style="background-color:black;color:green;display:inline-block">TSLA 1500.84(0.0013%) ▲</div>`
+    const html2 = `<div id="TCKRSPCL" style="background-color:black;color:green;display:inline-block">TSLA 1591.84(0.1923%) ▲</div>`
+    const html3 = `<div id="TCKRSPCL" style="background-color:black;color:red;display:inline-block">TSLA 1394.84(-1.3441%) ▼</div>`
+    const html4 = `<div id="TCKRSPCL" style="background-color:black;color:green;display:inline-block">TSLA 2100.84(17.001%) ▲</div>`
+    const html5 = `<div id="TCKRSPCL" style="background-color:black;color:red;display:inline-block">TSLA 1294.84(-3.3441%) ▼</div>`
+
+    let items = [html1, html2, html3, html4, html5];
+    let index = Math.floor(Math.random() * items.length);
+    console.log(index)
+    return items[index];
 }
 
 function walkTheDOM(node, func) {
@@ -22,6 +27,11 @@ function replaceAll(node) {
         var textContent = node.nodeValue;
         var splitString = textContent.split(" ")
         var newContent = textContent;
+        if (node.parentElement.id == "TCKRSPCL") {
+            node.parentElement.innerHTML = getTickerValue()
+            return
+        }
+
         splitString.forEach(word => {
             if (isATicker(cleanString(word))) {
                 newContent = textContent.replace(word, getTickerValue());
@@ -38,12 +48,9 @@ function cleanString(word) {
 }
 
 export function main() {
-    let dom = document.getRootNode()
-    const immutableRoot = dom.cloneNode(true)
+    const dom = document.getRootNode()
     setInterval(function () {
-        document.rootNode = immutableRoot;
-        dom = document.getRootNode();
         walkTheDOM(dom, replaceAll);
-    }, 5000)
+    }, 2000)
 }
 
