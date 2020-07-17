@@ -10,6 +10,7 @@ bloom.add("FB")
 bloom.add("AAPL")
 bloom.add("AMZN")
 bloom.add("SPCE")
+bloom.add("TQQQ")
 
 export function isATicker(word) {
     return bloom.test(word)

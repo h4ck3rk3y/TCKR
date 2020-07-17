@@ -1,11 +1,11 @@
 import { isATicker } from "./ticker.js"
 
 function getTickerValue(word) {
-    const html1 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:green;display:inline-block">${word}+0.03% ▲</div>`
-    const html2 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:green;display:inline-block">${word}+0.19%) ▲</div>`
-    const html3 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:red;display:inline-block">${word}-1.34% ▼</div>`
-    const html4 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:green;display:inline-block">${word}+17.1% ▲</div>`
-    const html5 = `<div id="TCKRSPCL" class="${word}" style="background-color:black;color:red;display:inline-block">${word}-3.34% ▼</div>`
+    const html1 = `<div id="TCKRSPCL" class="${word}" style="color:green;display:inline-block">${word}+0.03% ▲</div>`
+    const html2 = `<div id="TCKRSPCL" class="${word}" style="color:green;display:inline-block">${word}+0.19% ▲</div>`
+    const html3 = `<div id="TCKRSPCL" class="${word}" style="color:red;display:inline-block">${word}-1.34% ▼</div>`
+    const html4 = `<div id="TCKRSPCL" class="${word}" style="color:green;display:inline-block">${word}+17.1% ▲</div>`
+    const html5 = `<div id="TCKRSPCL" class="${word}" style="color:red;display:inline-block">${word}-3.34% ▼</div>`
 
     let items = [html1, html2, html3, html4, html5];
     let index = Math.floor(Math.random() * items.length);
