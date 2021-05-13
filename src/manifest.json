@@ -1,0 +1,23 @@
+{
+    "name": "TCKR",
+    "version": "0.0.1",
+    "description": "Get live quotes",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "js": [
+                "content_script.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "background": {
+      "scripts": ["yahoo-stock-prices.js"],
+      "persistent": false
+    },
+    "web_accessible_resources": [
+        "content.js", "bloom.js", "config.json"
+    ]
+}
